@@ -33,7 +33,6 @@ int	exec(char **argv, int i, char **envp)
 	pid = fork();
 	if (!pid)
 	{
-		argv[i] = 0;
 		if (has_pipe && (dup2(fd[1], 1) == -1 || close(fd[1]) == -1 || close(fd[0]) == -1))
 			return (error("error: fatal\n"));
 		if (!strcmp(*argv, "cd"))
